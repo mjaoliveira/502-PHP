@@ -19,4 +19,35 @@ $pessoas = [
 	],
 ];
 
-print_r($pessoas);
+
+echo '<pre>';
+foreach ($pessoas as $key => $pessoa) {
+	$pessoa['data_nasc'] = DateTime::createFromFormat('d/m/Y', $pessoa['data_nasc']);
+	$pessoas[$key] = $pessoa;
+}
+
+$novo = $pessoas[0];
+$velho = $pessoas[0];
+print_r($novo);
+foreach ($pessoas as $pessoa) {
+	if ($pessoa['data_nasc'] > $novo['data_nasc']) {
+		$novo = $pessoa;
+	}
+	if ($pessoa['data_nasc'] < $velho['data_nasc']) {
+		$velho = $pessoa;
+	}
+}
+
+echo '<hr>';
+
+echo "Mais novo: " . $novo['nome'];
+
+echo '<hr>';
+
+echo "Mais velho: " . $velho['nome'];
+
+echo '<hr>';
+
+$diferenca = $velho['data_nasc'] -> diff($novo['data_nasc']);
+
+echo $diferenca -> format('%r%a dias de diferença');
