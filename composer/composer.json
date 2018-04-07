@@ -1,0 +1,19 @@
+{
+    "name": "marcelo/composer",
+    "description": "Iniciando com o Composer",
+    "authors": [
+        {
+            "name": "Marcelo Jorge",
+            "email": "marcelojorge.ba@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0"
+    },
+    "autoload": {
+		"psr-4": {
+			"Marcelo\\": "src/"
+		}
+	}
+
+}
